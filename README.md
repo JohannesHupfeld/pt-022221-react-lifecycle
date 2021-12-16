@@ -2,14 +2,18 @@
 
 ## Questions to Ask Youself
 - Why have a lifecycle?
+  - display something on the DOM while your JS is loading
 - What is this taking the place of in vanilla JS?
+  - display some data on our basic html page then have a JS file that might fetch some data asynchronously and then append things to the DOM
 
 ## Lifecycle Diagram
 - http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 
 ## 3 Phases
 https://reactjs.org/docs/react-component.html
-
+  - bold = commonly used
+  - italics = not commonly used
+  - UNSAFE = found in legacy codes
 ### Mounting
 - __constructor()__
 - *static getDerivedStateFromProps()*

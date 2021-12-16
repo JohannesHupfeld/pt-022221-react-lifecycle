@@ -21,15 +21,15 @@ export default class PokemonContainer extends Component {
   }
 
   // state or props changed
-  componentDidUpdate() {
+  componentDidUpdate() { // function or more like method declarations -- componentDidUpdate is a method that belongs to the object
     console.log("UPDATED PokemonContainer")
     console.log(this.state)
-  } // DO NOT setState in componentDidUpdate unless it's conditional
+  } // DO NOT setState in componentDidUpdate unless it's conditional - otherwise infinit loop
 
   catchPokemon = (url) => {
     this.setState(prevState => ({
       caughtPokemon: [...prevState.caughtPokemon, url]
-    }))
+    })) // yellow parenthis lets it know that the curly brackets within are that of an object and not of the funtion. Allows us to keep it implicit without having to say return and make it explicit 
   }
 
   switchTimer = () => {
@@ -45,12 +45,13 @@ export default class PokemonContainer extends Component {
         {this.state.timerOn ? <Stopwatch /> : null}
         <h1>Gotta catch 'em all!</h1>
         <ul>
-          {this.state.pokemon.map((p, i) => <Pokemon key={i} {...p} catchPokemon={this.catchPokemon} />)}
-        </ul>
+          {this.state.pokemon.map((p, i) => <Pokemon key={i} {...p} catchPokemon={this.catchPokemon} />)} 
+          {/* in project use id # not i for key */}
+        </ul> 
 
         <h2>Caught Pokemon</h2>
-        {this.state.caughtPokemon.map(p => <img src={p} alt="pokemon image" />)}
+        {this.state.caughtPokemon.map((p, i) => <img key={i} src={p} alt="pokemon" />)}
       </div>
     )
-  }
+  }  
 }
